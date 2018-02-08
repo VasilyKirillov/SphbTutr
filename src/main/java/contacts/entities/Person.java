@@ -8,7 +8,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Person extends Contact {
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL) //, fetch = FetchType.LAZY
     private Address address;
 
     public Person() {
@@ -27,6 +27,9 @@ public class Person extends Contact {
         this.address = address;
     }
     
-    
+     @Override
+    public String getUrl() {
+        return "person?id=" + getId();
+    }
 
 }

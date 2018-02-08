@@ -8,7 +8,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Company extends Contact {
-    
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Office> offices;
 
@@ -27,5 +27,10 @@ public class Company extends Contact {
     public void setOffices(Set<Office> offices) {
         this.offices = offices;
     }
-    
+
+    @Override
+    public String getUrl() {
+        return "company?id=" + getId();
+    }
+
 }

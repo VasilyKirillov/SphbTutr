@@ -4,17 +4,11 @@ package contacts.entities;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Office {
-    
-    @Id
-    @GeneratedValue
-    private Long id;
-    
+public class Office  extends BaseEntity {
+        
     @Column
     private String name;
     
@@ -26,14 +20,6 @@ public class Office {
 
     public Office(Address address) {
         this.address = address;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

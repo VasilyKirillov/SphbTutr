@@ -2,18 +2,12 @@ package contacts.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED) /*  InheritanceType.SINGLE_TABLE not garantee uniqe ids for each child and parent */
-public class Contact {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+public abstract class Contact extends BaseEntity {    
 
     @Column
     private String name;
@@ -24,15 +18,7 @@ public class Contact {
     public Contact(String name) {
         this.name = name;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+   
     public String getName() {
         return name;
     }
@@ -41,7 +27,5 @@ public class Contact {
         this.name = name;
     }
 
-    public String getUrl() {
-        return "";
-    }
+    public abstract String getUrl() ;
 }
