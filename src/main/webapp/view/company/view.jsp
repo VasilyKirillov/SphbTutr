@@ -8,8 +8,7 @@
         <ul>
             offices:
             <c:forEach items="${company.offices}" var="office">
-                <a href="${office.url}">${office.name}</a>
-                
+                <li><a href="${office.url}">${office.name}</a></li>                
             </c:forEach>
         </ul> 
         <a href="${company.url}&edit">edit company</a>|
