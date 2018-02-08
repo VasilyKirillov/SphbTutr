@@ -7,9 +7,13 @@
         <h1>${company.name}</h1>
         <ul>
             offices:
+            <c:forEach items="${company.offices}" var="office">
+                <a href="${office.url}">${office.name}</a>
+                
+            </c:forEach>
         </ul> 
         <a href="${company.url}&edit">edit company</a>|
-        <a href="contacts">back to person list</a>
-        class name: ${company.class.simpleName}
+        <a href="contacts">back to contacts list</a> | 
+        <a href="office?add&company_id=${company.id}">add office</a>
     </body>
 </html>

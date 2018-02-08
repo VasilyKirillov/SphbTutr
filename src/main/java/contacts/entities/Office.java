@@ -4,11 +4,12 @@ package contacts.entities;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Office  extends BaseEntity {
+public class Office  extends UrlEntity {
         
     @Column
     private String name;
@@ -22,8 +23,10 @@ public class Office  extends BaseEntity {
     public Office() {
     }
 
-    public Office(Address address) {
+    public Office(Address address, Company company, String name) {
         this.address = address;
+        this.company = company;
+        this.name = name;
     }
 
     public String getName() {
@@ -48,6 +51,6 @@ public class Office  extends BaseEntity {
 
     public void setCompany(Company company) {
         this.company = company;
-    }
+    }    
     
 }

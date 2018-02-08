@@ -7,7 +7,7 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED) /*  InheritanceType.SINGLE_TABLE not garantee uniqe ids for each child and parent */
-public abstract class Contact extends BaseEntity {    
+public abstract class Contact extends UrlEntity {    
 
     @Column
     private String name;
@@ -27,5 +27,4 @@ public abstract class Contact extends BaseEntity {
         this.name = name;
     }
 
-    public abstract String getUrl() ;
 }
