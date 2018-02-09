@@ -1,6 +1,7 @@
 package contacts.entities;
 
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -8,7 +9,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Company extends Contact {
 
-    @OneToMany(mappedBy = "company")//, fetch = FetchType.EAGER 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
     private Set<Office> offices;
 
     public Company() {        
