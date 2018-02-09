@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import contacts.entities.Address;
 import contacts.entities.Person;
+import contacts.entities.representation.PersonRepresentation;
 import contacts.repositories.CompanyRepository;
 import contacts.repositories.PersonRepository;
+import javax.ws.rs.PathParam;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class PersonController {
@@ -29,6 +33,11 @@ public class PersonController {
         return "/person/add";
     }
 
+    @RequestMapping(value = "/person/{id}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody PersonRepresentation getPerson(@PathVariable long id){
+        return new PersonRepresentation(personRepository.findOne(id));
+    }
+    
     @RequestMapping(value = "/person", params = "edit", method = RequestMethod.GET)
     public String getEditPerson(@RequestParam long id, Model model) {
         model.addAttribute("person", personRepository.findOne(id));
