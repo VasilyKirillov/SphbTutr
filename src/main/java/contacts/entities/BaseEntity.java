@@ -4,12 +4,16 @@ package contacts.entities;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Version;
 
 @MappedSuperclass
 public abstract class BaseEntity {
     @Id
     @GeneratedValue
     private Long id;
+    
+    @Version  // "optimistic locks" encouraging
+    private long version;
 
     public Long getId() {
         return id;
