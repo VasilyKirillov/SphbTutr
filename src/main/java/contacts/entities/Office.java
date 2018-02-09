@@ -10,13 +10,13 @@ import javax.persistence.OneToOne;
 @Entity
 public class Office  extends UrlEntity {
         
-    @Column
+    @Column(nullable = false) /* means that the field "name" must not be NULL */ 
     private String name;
     
-    @ManyToOne
+    @ManyToOne(optional = false) /* "optional = false" means that company must not be NULL */  
     private Company company;
-    
-    @OneToOne(cascade = CascadeType.ALL)
+    /* optional is used for OneToOne, OneToMany and ManyToOne, ManyToMany annotations */
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
     private Address address;
 
     public Office() {
