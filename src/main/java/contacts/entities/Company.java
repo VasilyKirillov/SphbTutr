@@ -9,9 +9,9 @@ import javax.persistence.OneToMany;
 @Entity
 public class Company extends Contact {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company") //, orphanRemoval = true
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company") 
     private Set<Office> offices;
-
+    /* "orphanRemoval = true"  - means that if I remove office from the Set<>, it should be removed from DB as well */
     public Company() {        
     }
     

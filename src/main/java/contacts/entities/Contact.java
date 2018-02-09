@@ -9,7 +9,7 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.JOINED) /*  InheritanceType.SINGLE_TABLE not garantee uniqe ids for each child and parent */
 public abstract class Contact extends UrlEntity {    
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(20) default 'GOD'")
     private String name;
 
     public Contact() {

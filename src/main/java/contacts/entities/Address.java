@@ -6,16 +6,16 @@ import javax.persistence.Entity;
 @Entity
 public class Address  extends BaseEntity {
 
-	@Column
+	@Column(length = 30, nullable = false)
 	private String street;
 
-	@Column
+	@Column(length = 20, nullable = false)
 	private String city;
 
-	@Column
+	@Column(length = 20, nullable = true)
 	private String state;
 
-	@Column
+	@Column(length = 10, nullable = false)
 	private String zip;
 
 	public Address() {
