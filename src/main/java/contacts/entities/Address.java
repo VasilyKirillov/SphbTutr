@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 /* org.hibernate.validator.constraints - has several validating annotatians */
 import org.hibernate.validator.constraints.NotBlank; 
+import validators.Zip;
 
 @Entity
 public class Address  extends BaseEntity {
@@ -22,6 +23,7 @@ public class Address  extends BaseEntity {
 
 	@Column(length = 10, nullable = false)
         @NotBlank
+        @Zip(length = 5)
 	private String zip;
 
 	public Address() {

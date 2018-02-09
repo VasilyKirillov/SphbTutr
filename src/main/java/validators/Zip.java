@@ -1,15 +1,20 @@
 
 package validators;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import javax.validation.ReportAsSingleViolation;
+import javax.validation.Constraint;
 
-@Target(value = {ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER})
+@Documented
+@Constraint(validatedBy = ZipValidator.class)
+@Target(value = ElementType.FIELD)
 @Retention(value = RetentionPolicy.RUNTIME)
-@ReportAsSingleViolation
 public @interface Zip {
-    
+    String message() default  "Zip must have numbers or letters and have proper length ";
+    Class<?>[] groups() default {};
+    Class<?>[] payload() default {};
+    int length() default 10;
 }
